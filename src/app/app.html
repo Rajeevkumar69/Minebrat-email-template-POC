@@ -1,5 +1,33 @@
-<h1 class="text-danger">Hello world!</h1>
+<div class="container py-3">
+     <div class="row align-items-center mb-4">
+          <div class="col-md-2 text-md-start text-center mb-3 mb-md-0">
+               <img src="https://media.licdn.com/dms/image/v2/C560BAQHc4HiMmaZgmw/company-logo_200_200/company-logo_200_200/0/1630668822468/minebrat_logo?e=2147483647&v=beta&t=Nq6m11AjCc4J6r8obuvMqfVOBscTa4zoLNznt0z0_lI"
+                    alt="Company Logo" class="img-fluid rounded shadow-sm" style="max-width: 100px;" />
+          </div>
+          <div class="col-md-10 text-center text-center">
+               <h1 class="display-5 fw-bold" style="color: #320661;">Email Template Builder</h1>
+               <p class="lead text-secondary mb-0">Design professional email campaigns with ease.</p>
+          </div>
+     </div>
 
-<button (click)="exportHtml()">Export</button>
+     <div class="card shadow border-0">
+          <div class="card-body p-4 bg-light">
+               <div *ngIf="isBrowser">
+                    <email-editor (loaded)="editorLoaded()" (ready)="editorReady()"></email-editor>
+               </div>
+          </div>
+     </div>
 
-<email-editor (loaded)="editorLoaded()" (ready)="editorReady()"></email-editor>
+     <div class="row mt-4" *ngIf="isBrowser">
+          <div class="col text-start">
+               <button class="btn btn-lg btn-success shadow" (click)="exportHtml()">
+                    <i class="bi bi-box-arrow-down me-2"></i>Export HTML
+               </button>
+          </div>
+          <div class="col text-end">
+               <button class="btn btn-lg btn-primary shadow" (click)="saveAsPDF()">
+                    <i class="bi bi-file-earmark-pdf me-2"></i>Save as PDF
+               </button>
+          </div>
+     </div>
+</div>
